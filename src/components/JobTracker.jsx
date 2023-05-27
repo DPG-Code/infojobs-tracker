@@ -1,38 +1,33 @@
 import { useContext } from 'react'
 import { JobsContext } from '@/context/JobsContext'
 import SearchBar from './SearchBar'
+import SampleCard from './SampleCard'
 
-export default function JobTracker() {
+export default function JobTracker({ queryParam }) {
   const { dataJobs } = useContext(JobsContext)
-
-  console.log(dataJobs)
 
   return (
     <>
-      <SearchBar />
+      <SearchBar queryParam={queryParam} />
 
       {dataJobs && dataJobs.response ? (
-        <p>Total de empleos: {dataJobs.response.totalResults}</p>
+        <p className='text-lg font-medium'>
+          Total de empleos:{' '}
+          <span className='font-semibold'>
+            {dataJobs.response.totalResults}
+          </span>
+        </p>
       ) : (
-        <p>Busca un empleo y revisa información a detalle</p>
+        <p className='text-lg font-medium'>
+          Busca un empleo y revisa información a detalle
+        </p>
       )}
 
       {dataJobs && dataJobs.response && (
-        <section className='grid grid-cols-2 text-left gap-2'>
-          <div className='px-5 py-4'>
-            <h2 className='mb-3 text-lg font-semibold'>Experiencia</h2>
-            {dataJobs.experience.map((time, i) => (
-              <p key={i} className='text-sm opacity-75'>
-                {time}
-              </p>
-            ))}
-          </div>
-
-          <div className='px-5 py-4'>
-            <h2 className='mb-3 text-lg font-semibold'>Salarios</h2>
-            <p className='text-sm opacity-75'>
-              Minimo: {dataJobs.salary.totalSalaryMin}
-            </p>
+        <section className='grid grid-cols-2 text-left gap-6'>
+          <div className='p-6 max-w-lg bg-white shadow-xl rounded-xl flex flex-col gap-4'>
+            <h2 className='text-lg font-semibold'>Salarios</h2>
+            <p className='text-sm'>Minimo: {dataJobs.salary.totalSalaryMin}</p>
             <p className='text-sm opacity-75'>
               Maximo: {dataJobs.salary.totalSalaryMax}
             </p>
@@ -41,45 +36,26 @@ export default function JobTracker() {
             </p>
           </div>
 
-          <div className='px-5 py-4'>
-            <h2 className='mb-3 text-lg font-semibold'>
-              Compañias destacadas y que ofrecen mas empleos
-            </h2>
-            {dataJobs.company.map((company, i) => (
-              <p key={i} className='text-sm opacity-75'>
-                {company}
-              </p>
-            ))}
-          </div>
-
-          <div className='px-5 py-4'>
-            <h2 className='mb-3 text-lg font-semibold'>
-              Ubicaciones con mayor demanda
-            </h2>
-            {dataJobs.location.map((location, i) => (
-              <p key={i} className='text-sm opacity-75'>
-                {location}
-              </p>
-            ))}
-          </div>
-
-          <div className='px-5 py-4'>
-            <h2 className='mb-3 text-lg font-semibold'>
-              Requisitos educativos más solicitados
-            </h2>
-            {dataJobs.education.map((level, i) => (
-              <p key={i} className='text-sm opacity-75'>
-                {level}
-              </p>
-            ))}
-          </div>
-
-          <div className='px-5 py-4'>
-            <h2 className='mb-3 text-lg font-semibold'>
-              Tipo de trabajo más solicitado
-            </h2>
-            <p className='text-sm opacity-75'>{dataJobs.typeJob}</p>
-          </div>
+          <SampleCard
+            title='Experiencia requerida'
+            dataJobs={dataJobs.experience}
+          />
+          <SampleCard
+            title='Compañias destacadas y que ofrecen mas empleos'
+            dataJobs={dataJobs.company}
+          />
+          <SampleCard
+            title='Ubicaciones con mayor demanda'
+            dataJobs={dataJobs.location}
+          />
+          <SampleCard
+            title='Requisitos educativos más solicitados'
+            dataJobs={dataJobs.education}
+          />
+          <SampleCard
+            title='Tipo de trabajo más solicitado'
+            dataJobs={dataJobs.typeJob}
+          />
         </section>
       )}
     </>
