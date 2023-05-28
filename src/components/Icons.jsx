@@ -7,11 +7,11 @@ export function HomeIcon() {
         strokeWidth={1.5}
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
-        color='#000'
+        color='currentColor'
       >
         <path
           d='M10 16h4M2 8l9.732-4.866a.6.6 0 01.536 0L22 8m-2 3v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8'
-          stroke='#000'
+          stroke='currentColor'
           strokeLinecap='round'
           strokeLinejoin='round'
         />
@@ -41,6 +41,27 @@ export function FavIcon() {
   )
 }
 
+export function RemoveFavIcon() {
+  return (
+    <>
+      <svg
+        className='w-4 h-4'
+        xmlns='http://www.w3.org/2000/svg'
+        fill='none'
+        viewBox='0 0 24 24'
+        strokeWidth={1.5}
+        stroke='currentColor'
+      >
+        <path
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          d='M6 18L18 6M6 6l12 12'
+        />
+      </svg>
+    </>
+  )
+}
+
 export function SearchIcon() {
   return (
     <>
@@ -59,5 +80,44 @@ export function SearchIcon() {
         />
       </svg>
     </>
+  )
+}
+
+export function SearchJobIcon() {
+  return (
+    <svg
+      className='w-4 h-4'
+      strokeWidth={1.5}
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      color='currentColor'
+    >
+      <path
+        d='M21 12v-2a5 5 0 00-5-5H8a5 5 0 00-5 5v0a5 5 0 005 5h4m8.124 4.119a3 3 0 10-4.248-4.237 3 3 0 004.248 4.237zm0 0L22 21'
+        stroke='currentColor'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  )
+}
+
+export function ArrowToRigthIcon() {
+  return (
+    <svg
+      className='w-4 h-4'
+      xmlns='http://www.w3.org/2000/svg'
+      fill='none'
+      viewBox='0 0 24 24'
+      strokeWidth={1.5}
+      stroke='currentColor'
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='M8.25 4.5l7.5 7.5-7.5 7.5'
+      />
+    </svg>
   )
 }

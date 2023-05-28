@@ -1,5 +1,6 @@
 import { JobsContext } from '@/context/JobsContext'
 import { useContext } from 'react'
+import { FavIcon, RemoveFavIcon } from './Icons'
 
 export default function ButtonFavorite({ query }) {
   const { favoriteJobs, setFavoriteJobs } = useContext(JobsContext)
@@ -15,9 +16,19 @@ export default function ButtonFavorite({ query }) {
   return (
     <>
       {favoriteJobs.includes(query) ? (
-        <button onClick={deleteFavorite}>remove favorites</button>
+        <button
+          className='px-4 py-1 bg-white border-2 border-neutral-400 text-black text-sm font-medium rounded-full flex items-center justify-center gap-2 transition hover:bg-red-600 hover:border-red-600 hover:text-white hover:shadow-lg hover:shadow-red-300'
+          onClick={deleteFavorite}
+        >
+          <RemoveFavIcon /> Eliminar
+        </button>
       ) : (
-        <button onClick={addFavorite}>add favorites</button>
+        <button
+          className='px-4 py-1 bg-white border-2 border-neutral-400 text-black text-sm font-medium rounded-full flex items-center justify-center gap-2 transition hover:bg-blue-500 hover:border-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-300'
+          onClick={addFavorite}
+        >
+          <FavIcon /> Añadir
+        </button>
       )}
     </>
   )

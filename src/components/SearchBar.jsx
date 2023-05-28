@@ -1,13 +1,10 @@
 import { useContext, useEffect, useState } from 'react'
 import { JobsContext } from '@/context/JobsContext'
 import { getJobData } from '@/services/getJobData'
-import ButtonFavorite from './ButttonFavorite'
 import { SearchIcon } from './Icons'
 
-export default function SearchBar({ queryParam }) {
-  const [query, setQuery] = useState('')
-  const [succefull, setSuccefull] = useState(false)
-  const { setDataJobs } = useContext(JobsContext)
+export default function SearchBar({ queryParam, setSuccefull }) {
+  const { query, setQuery, setDataJobs } = useContext(JobsContext)
 
   useEffect(() => {
     const getData = async () => {
@@ -30,7 +27,6 @@ export default function SearchBar({ queryParam }) {
 
   return (
     <>
-      {succefull && <ButtonFavorite query={query || queryParam} />}
       <form
         className='w-full flex items-center justify-center gap-4'
         onSubmit={(e) => {
@@ -40,7 +36,7 @@ export default function SearchBar({ queryParam }) {
       >
         <div className='flex items-center relative'>
           <input
-            className='px-4 py-1 w-72 border border-neutral-600 text-black text-base rounded-full'
+            className='px-4 py-1 w-52 border-2 border-neutral-400 text-black text-base rounded-full sm:w-72'
             type='text'
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -51,7 +47,7 @@ export default function SearchBar({ queryParam }) {
           </div>
         </div>
         <button
-          className='px-4 py-1 bg-blue-500 text-white text-base font-medium rounded-full'
+          className='px-4 py-1 bg-blue-500 text-white text-base font-medium rounded-full transition hover:shadow-lg hover:shadow-blue-300'
           type='submit'
         >
           Buscar

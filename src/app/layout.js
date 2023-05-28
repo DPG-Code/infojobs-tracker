@@ -1,23 +1,29 @@
 'use client'
 
-import { FavIcon, HomeIcon } from '@/components/Icons'
 import './globals.css'
-import JobsContextProvider from '@/context/JobsContext'
+import { Inter } from 'next/font/google'
 import Link from 'next/link'
+import { FavIcon, HomeIcon } from '@/components/Icons'
+import JobsContextProvider from '@/context/JobsContext'
 
 export const metadata = {
   title: 'JobsTracker',
   description: 'Infojobs Tracker'
 }
 
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+})
+
 export default function RootLayout({ children }) {
   return (
     <JobsContextProvider>
-      <html lang='en'>
-        <body className='flex flex-col relative'>
+      <html lang='en' className={inter.className}>
+        <body className='min-h-screen flex flex-col justify-between relative'>
           <header className='z-50 w-full flex items-center justify-center fixed top-4'>
             <nav className='px-6 py-2 bg-white rounded-full shadow-xl'>
-              <ul className='text-base text-black font-semibold flex items-center justify-center gap-4'>
+              <ul className='text-base text-black font-medium flex items-center justify-center gap-6'>
                 <li>
                   <Link
                     className='flex items-center justify-center gap-2'
@@ -39,7 +45,7 @@ export default function RootLayout({ children }) {
             </nav>
           </header>
           {children}
-          <footer className='h-12 w-full text-black text-xs font-medium flex items-center justify-center gap-2'>
+          <footer className='h-20 w-full text-black text-xs font-medium flex items-center justify-center gap-2'>
             Desarrollado con la
             <a
               className='text-blue-500'
