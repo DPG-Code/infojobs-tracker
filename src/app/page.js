@@ -3,7 +3,7 @@
 import JobTracker from '@/components/JobTracker'
 import Image from 'next/image'
 
-export default async function Home() {
+export default function Home() {
   return (
     <main className='py-32 px-10 flex flex-col items-center justify-center lg:py-36'>
       <section className='w-full flex flex-col items-center justify-center gap-12 lg:gap-16'>

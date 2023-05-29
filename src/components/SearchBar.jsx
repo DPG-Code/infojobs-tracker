@@ -3,15 +3,25 @@ import { JobsContext } from '@/context/JobsContext'
 import { getJobData } from '@/services/getJobData'
 import { SearchIcon } from './Icons'
 
-export default function SearchBar({ queryParam, setSuccefull }) {
-  const { query, setQuery, setDataJobs } = useContext(JobsContext)
+export default function SearchBar({ queryParam }) {
+  const {
+    query,
+    setQuery,
+    succefull,
+    setSuccefull,
+    setFirstSearch,
+    setDataJobs
+  } = useContext(JobsContext)
 
   useEffect(() => {
     const getData = async () => {
       if (queryParam !== '') {
         const data = await getJobData(queryParam)
-        setDataJobs(data)
-        setSuccefull(true)
+        if (data.response.totalResults > 0) {
+          setDataJobs(data)
+          setSuccefull(true)
+          setFirstSearch(false)
+        } else setSuccefull(false)
       }
     }
     if (queryParam) getData()
@@ -20,8 +30,11 @@ export default function SearchBar({ queryParam, setSuccefull }) {
   const getData = async () => {
     if (query !== '') {
       const data = await getJobData(query)
-      setDataJobs(data)
-      setSuccefull(true)
+      if (data.response.totalResults > 0) {
+        setDataJobs(data)
+        setSuccefull(true)
+        setFirstSearch(false)
+      } else setSuccefull(false)
     }
   }
 
