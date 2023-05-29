@@ -3,7 +3,6 @@ import { JobsContext } from '@/context/JobsContext'
 import ButtonFavorite from './ButttonFavorite'
 import SearchBar from './SearchBar'
 import SampleCard from './SampleCard'
-import { SearchJobIcon } from './Icons'
 import SampleCardSalary from './SampleCardSalary'
 import autoAnimate from '@formkit/auto-animate'
 
@@ -23,11 +22,11 @@ export default function JobTracker({ queryParam }) {
 
       <article
         ref={parent}
-        className='flex flex-col items-center justify-center gap-12'
+        className='w-full flex flex-col items-center justify-center gap-12 xl:gap-16'
       >
         {dataJobs && dataJobs.response ? (
-          <div className='flex flex-col items-center justify-center gap-4'>
-            <p className='text-center text-lg font-normal'>
+          <div className='flex flex-col items-center justify-center gap-4 lg:gap-6'>
+            <p className='text-center text-lg font-normal lg:text-xl 2xl:text-2xl'>
               Total empleos:{' '}
               <span className='font-semibold'>
                 {dataJobs.response.totalResults}
@@ -36,14 +35,13 @@ export default function JobTracker({ queryParam }) {
             {succefull && <ButtonFavorite query={query || queryParam} />}
           </div>
         ) : (
-          <p className='text-center text-sm font-normal flex items-center justify-center gap-2'>
+          <p className='text-center text-black text-sm font-semibold lg:text-2xl 2xl:text-3xl'>
             Busca un empleo y revisa información a detalle
-            <SearchJobIcon />
           </p>
         )}
 
         {dataJobs && dataJobs.response && (
-          <section className='grid grid-cols-1 text-left gap-6 sm:grid-cols-2'>
+          <section className='max-w-7xl w-full grid grid-cols-1 text-left gap-6 sm:grid-cols-2 xl:gap-12'>
             <SampleCardSalary
               title='Promedio de Salarios'
               dataJobs={dataJobs.salary}

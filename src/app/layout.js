@@ -21,12 +21,12 @@ export default function RootLayout({ children }) {
     <JobsContextProvider>
       <html lang='en' className={inter.className}>
         <body className='min-h-screen flex flex-col justify-between relative'>
-          <header className='z-50 w-full flex items-center justify-center fixed top-4'>
-            <nav className='px-6 py-2 bg-white rounded-full shadow-xl'>
-              <ul className='text-base text-black font-medium flex items-center justify-center gap-6'>
+          <header className='z-50 w-full flex items-center justify-center fixed top-4 xl:top-8'>
+            <nav className='px-6 py-2 bg-white rounded-full shadow-xl xl:px-10 xl:py-4'>
+              <ul className='text-base text-black font-semibold flex items-center justify-center gap-6 xl:text-xl xl:gap-10'>
                 <li>
                   <Link
-                    className='flex items-center justify-center gap-2'
+                    className='flex items-center justify-center gap-2 xl:gap-3'
                     href='/'
                   >
                     <HomeIcon />
@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
                 </li>
                 <li>
                   <Link
-                    className='flex items-center justify-center gap-2'
+                    className='flex items-center justify-center gap-2 xl:gap-3'
                     href='/favorites'
                   >
                     <FavIcon /> Favoritos
@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
             </nav>
           </header>
           {children}
-          <footer className='h-20 w-full text-black text-xs font-medium flex items-center justify-center gap-2'>
+          <footer className='h-20 w-full text-black text-xs font-semibold flex items-center justify-center gap-2 lg:h-32 lg:text-lg 2xl:text-xl'>
             Desarrollado con la
             <a
               className='text-blue-500'

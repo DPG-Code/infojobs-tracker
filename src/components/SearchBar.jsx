@@ -28,7 +28,7 @@ export default function SearchBar({ queryParam, setSuccefull }) {
   return (
     <>
       <form
-        className='w-full flex items-center justify-center gap-4'
+        className='w-full flex items-center justify-center gap-4 lg:gap-8 xl:gap-10'
         onSubmit={(e) => {
           e.preventDefault()
           getData()
@@ -36,7 +36,7 @@ export default function SearchBar({ queryParam, setSuccefull }) {
       >
         <div className='flex items-center relative'>
           <input
-            className='px-4 py-1 w-52 border-2 border-neutral-400 text-black text-base rounded-full sm:w-72'
+            className='px-4 py-1 w-52 border-2 border-neutral-400 text-black text-base rounded-full sm:w-72 lg:w-auto lg:text-xl 2xl:px-10 2xl:py-2 2xl:text-2xl'
             type='text'
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -47,7 +47,7 @@ export default function SearchBar({ queryParam, setSuccefull }) {
           </div>
         </div>
         <button
-          className='px-4 py-1 bg-blue-500 text-white text-base font-medium rounded-full transition hover:shadow-lg hover:shadow-blue-300'
+          className='px-4 py-1 bg-blue-500 text-white text-base font-medium rounded-full transition hover:shadow-lg hover:shadow-blue-300 lg:text-xl 2xl:px-10 2xl:py-2 2xl:text-2xl'
           type='submit'
         >
           Buscar

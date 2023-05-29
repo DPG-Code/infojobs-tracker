@@ -1,8 +1,8 @@
 export default function SampleCardSalary({ title, dataJobs }) {
   return (
-    <div className='p-6 max-w-lg bg-white shadow-lg rounded-xl flex flex-col gap-4'>
-      <h2 className='text-lg font-semibold'>{title}</h2>
-      <div className='text-sm flex flex-col gap-2'>
+    <div className='p-6 bg-white shadow-lg rounded-xl flex flex-col gap-4 xl:p-8 xl:rounded-3xl xl:gap-6'>
+      <h2 className='text-lg font-semibold xl:text-2xl'>{title}</h2>
+      <div className='text-sm flex flex-col gap-2 xl:text-lg'>
         <p>
           Mínimo:{' '}
           <span className='font-medium'>
