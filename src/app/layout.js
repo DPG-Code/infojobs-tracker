@@ -3,13 +3,17 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
-import { FavIcon, HomeIcon } from '@/components/Icons'
 import JobsContextProvider from '@/context/JobsContext'
+import { FavIcon, HomeIcon } from '@/components/Icons'
 
-export const metadata = {
-  title: 'JobsTracker',
-  description: 'Infojobs Tracker'
-}
+// export const metadata = {
+//   title: 'JobsTracker',
+//   description:
+//     'Descubre, sigue y organiza empleos con JobsTracker: encuentra oportunidades laborales, guarda tus favoritos y realiza un seguimiento de tus solicitudes. Impulsa tu carrera con esta herramienta completa de búsqueda de empleo.',
+//   icons: {
+//     icon: '/logo.webp'
+//   }
+// }
 
 const inter = Inter({
   subsets: ['latin'],
@@ -18,8 +22,8 @@ const inter = Inter({
 
 export default function RootLayout({ children }) {
   return (
-    <JobsContextProvider>
-      <html lang='en' className={inter.className}>
+    <html lang='en' className={inter.className}>
+      <JobsContextProvider>
         <body className='min-h-screen flex flex-col justify-between relative'>
           <header className='z-50 w-full flex items-center justify-center fixed top-4 xl:top-8'>
             <nav className='px-6 py-2 bg-white rounded-full shadow-xl xl:px-10 xl:py-4'>
@@ -56,7 +60,7 @@ export default function RootLayout({ children }) {
             </a>
           </footer>
         </body>
-      </html>
-    </JobsContextProvider>
+      </JobsContextProvider>
+    </html>
   )
 }
