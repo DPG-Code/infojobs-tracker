@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 
-const infoJobsToken = process.env.INFOJOBS_TOKEN ?? ''
+const infoJobsToken = process.env.NEXT_PUBLIC_INFOJOBS_TOKEN ?? ''
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url)
