@@ -15,7 +15,7 @@
 <p></p>
 </div>
 
-![Next.js Badge](https://img.shields.io/badge/Next.js 13-000?logo=nextdotjs =fff =flat)
+![Next.js Badge](https://img.shields.io/badge/Next.js_13-000?logo=nextdotjs=fff=flat)
 ![React.js Badge](https://img.shields.io/badge/React-06B6D4?logo=react&logoColor=fff&style=flat)
 ![GitHub stars](https://img.shields.io/github/stars/Dpg-Code/infojobs-tracker)
 ![GitHub forks](https://img.shields.io/github/forks/Dpg-Code/infojobs-tracker)
