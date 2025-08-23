@@ -14,6 +14,10 @@ export default function Home() {
           height={200}
           priority
         />
+        <h2 className='text-center text-black text-sm lg:text-xl 2xl:text-2xl'>
+          La Api de <span className='text-blue-500'>Infojobs</span> ha sido
+          desabilitada
+        </h2>
         <JobTracker />
       </section>
     </main>
